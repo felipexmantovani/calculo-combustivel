@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="https://kit.fontawesome.com/c620f812f4.js" crossorigin="anonymous"></script>
     <title>Cálculo De Combustível</title>
 </head>
 
@@ -15,17 +16,17 @@
     <main class="container">
 <section>
     
-            <form action="">
+            <form action="#">
                 <div id="conteudo">
                     <img src="img/logo.svg" alt="imagem-logo">
                     <p id="question">Qual combustível compensa abastecer?</p>
                     <p id="question-value">Informe os valores abaixo: </p>
-                    <input type="text" placeholder="Etanol" class="input"  required >
-                    <input type="text" placeholder="Gasolina" class="input" required>
+                    <input type="text" placeholder="Etanol" class="input" name="Valida" >
+                    <input type="text" placeholder="Gasolina" class="input"name="Valida" >
                     <input type="submit" value="Calcular" id="button">
+                    <div id="toast">Informe o valor do Etanol </div>
                 </div>
             </form>
-
 </section>
 
     </main>
@@ -33,6 +34,7 @@
 <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 <script src="jquery.mask.js"></script>
 <script src="js/script.js"></script>
+<script src="js/toast.js"></script>
 </body>
 
 </html>
