@@ -1,12 +1,22 @@
-div#toast{
-    width: 183px;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+div.active{
     background-color: #E7A018;
     color: #FFFFFF;
-    height: 33px;
+    height: 38px;
     text-align: center;
-    line-height: 35px;
-    border-radius: 5px;
+    line-height: 39px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     position: relative;
-    top: 42px;
-    font-size: 15px;
+    top: 104px;
+    font-size: 17px;
 }
+
+#toast-message {
+    display: none;
+  }
+  
+  #toast.active #toast-message {
+    display: block;
+  }

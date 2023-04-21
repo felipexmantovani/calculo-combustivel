@@ -1,43 +1,25 @@
-const form = document.querySelector('form');
 
-toast();
-form.addEventListener('submit', (event) => {
-  event.preventDefault(); 
+hideToast();
 
-  const inputs = form.querySelectorAll('.input');
-  let hasEmptyField = false;
-  
-  // Verifica se algum campo de entrada está vazio
-  inputs.forEach(input => {
-    if (input.value.trim() === '') {
-      hasEmptyField = true;
-    }
-  });
+function showToast() {
+  $('#toast').addClass('active')
 
-  if (hasEmptyField) {
-    // Exibe o toast se houver algum campo de entrada vazio
-    document.getElementById('toast').style.display = 'inline';
-    setTimeout(function(){
-        document.getElementById('toast').animate([
-            
-            { transform: 'translateY(38px)'},
-            
-           
-           
-        ],{
-            duration:100,
-            iteration: 1
-        }
-        ).onfinish = function() {
-            toast();
-        };
-    }, 5000);
-  } else {
+  setTimeout(function () {
     
-toast();
-  }
-});
+    document.getElementById('toast').animate([
 
-function toast() {
-  document.getElementById('toast').style.display = 'none';    
+      { transform: 'translateY(38px)' },
+
+    ], {
+      duration: 100,
+      iteration: 1
+    }
+    ).onfinish = function () {
+      hideToast()
+    };
+  }, 5000);
+}
+
+function hideToast() {
+  $('#toast').removeClass('active')
 }
