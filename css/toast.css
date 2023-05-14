@@ -1,22 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-div.active{
+div.active {
     background-color: #E7A018;
     color: #FFFFFF;
-    height: 38px;
-    text-align: center;
-    line-height: 39px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    position: relative;
-    top: 104px;
     font-size: 17px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    text-align: center;
+    width: 100%
 }
 
 #toast-message {
     display: none;
-  }
-  
-  #toast.active #toast-message {
+}
+
+#toast.active #toast-message {
     display: block;
-  }
+}
+

@@ -1,22 +1,11 @@
 
 hideToast();
+function showToast(message) {
+  $('#toast-message').text(message);
+  $('#toast').addClass('active');
 
-function showToast() {
-  $('#toast').addClass('active')
-
-  setTimeout(function () {
-    
-    document.getElementById('toast').animate([
-
-      { transform: 'translateY(38px)' },
-
-    ], {
-      duration: 100,
-      iteration: 1
-    }
-    ).onfinish = function () {
-      hideToast()
-    };
+  setTimeout(function() {
+    $('#toast').removeClass('active');
   }, 5000);
 }
 

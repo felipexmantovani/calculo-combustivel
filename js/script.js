@@ -1,25 +1,24 @@
-
 $(".input").mask("#,##0.00", { reverse: true });
 
 const form = document.querySelector('form');
 form.addEventListener('submit', (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    const inputs = form.querySelectorAll('.input');
-    let hasEmptyField = false;
-    inputs.forEach(input => {
-        if (input.value.trim() === '') {
-            hasEmptyField = true;
-        }
-    });
+  const inputs = form.querySelectorAll('.input');
+  let hasEmptyField = false;
+  let emptyField;
 
-    if (hasEmptyField) {
-        showToast();
+  inputs.forEach(input => {
+    if (input.value.trim() === '') {
+      hasEmptyField = true;
+      emptyField = input.placeholder;
     }
-    else {
+  });
 
-        hideToast()
-    }
-
+  if (hasEmptyField) {
+    const message = `Informe o valor da ${emptyField}`;
+    showToast(message);
+  } else {
+    hideToast();
+  }
 });
-
