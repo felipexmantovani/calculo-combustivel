@@ -1,24 +1,23 @@
-$(".input").mask("#,##0.00", { reverse: true });
+$('.input').mask('#,##0.00', { reverse: true });
 
-const form = document.querySelector('form');
-form.addEventListener('submit', (event) => {
+const FORM = document.querySelector('form');
+
+FORM.addEventListener('submit', (event) => {
   event.preventDefault();
+  hideToast();
 
-  const inputs = form.querySelectorAll('.input');
-  let hasEmptyField = false;
-  let emptyField;
+  const INPUTS = FORM.querySelectorAll('.input');
+  const INPUT_EMPTY = Object.values(INPUTS).filter(input => input.value.trim() === '');
 
-  inputs.forEach(input => {
-    if (input.value.trim() === '') {
-      hasEmptyField = true;
-      emptyField = input.placeholder;
-    }
-  });
-
-  if (hasEmptyField) {
-    const message = `Informe o valor da ${emptyField}`;
-    showToast(message);
-  } else {
-    hideToast();
+  if (INPUT_EMPTY.length > 0) {
+    showToast(`Informe o valor do campo ${INPUT_EMPTY[0].placeholder}`, TOAST_TYPE.WARNING);
+    return;
   }
+  showToast(`Abasteça com ${getFuelThatCompensates()}`, TOAST_TYPE.SUCESS);
 });
+
+function getFuelThatCompensates() {
+  // implementar aqui lógica que calcula o combustível que compensa e retorne o nome dele
+
+  return 'NOME_DO_COMBUSTIVEL';
+}
