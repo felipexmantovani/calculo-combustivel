@@ -1,0 +1,26 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main # Altere para o nome da sua branch principal
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2
+        with:
+          publish-dir: ./ # Substitua pelo diretório de saída do seu projeto
+          production-branch: main # Altere se a branch principal for diferente
+          deploy-message: Deployed via GitHub Actions
+
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 4cdaf4a0-4d3d-4774-b22c-8f74b6e56fbc
+
