@@ -18,16 +18,14 @@ FORM.addEventListener('submit', (event) => {
 
 function getFuelThatCompensates() {
 
-const valorDoEtanol = document.getElementById(inputEtanol)
-const valorDaGasolina = document.getElementById(inputGasolina)
+  const VALOR_ETANOL = parseFloat(document.getElementById('inputEtanol').value)
+  const VALOR_GASOLINA = parseFloat(document.getElementById('inputGasolina').value)
+  const PORCENTAGEM = VALOR_GASOLINA * 0.75
 
-const media = 0.75
-const proporcao = valorDoEtanol / valorDaGasolina
-
-if (proporcao <= media ) {
-  return "Etanol"
-}
-else {
-  return "Gasolina"
-}
+  if (PORCENTAGEM >= VALOR_ETANOL) {
+    return "Etanol"
+  }
+  else {
+    return "Gasolina"
+  }
 }
