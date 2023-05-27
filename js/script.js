@@ -17,7 +17,15 @@ FORM.addEventListener('submit', (event) => {
 });
 
 function getFuelThatCompensates() {
-  // implementar aqui lógica que calcula o combustível que compensa e retorne o nome dele
 
-  return 'NOME_DO_COMBUSTIVEL';
+  const VALOR_ETANOL = parseFloat(document.getElementById('inputEtanol').value)
+  const VALOR_GASOLINA = parseFloat(document.getElementById('inputGasolina').value)
+  const PORCENTAGEM = VALOR_GASOLINA * 0.75
+
+  if (PORCENTAGEM >= VALOR_ETANOL) {
+    return "Etanol"
+  }
+  else {
+    return "Gasolina"
+  }
 }
