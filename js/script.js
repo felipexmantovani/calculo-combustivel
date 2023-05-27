@@ -17,7 +17,6 @@ FORM.addEventListener('submit', (event) => {
 });
 
 function getFuelThatCompensates() {
-  // implementar aqui lógica que calcula o combustível que compensa e retorne o nome dele
 
 const valorDoEtanol = document.getElementById(inputEtanol)
 const valorDaGasolina = document.getElementById(inputGasolina)
