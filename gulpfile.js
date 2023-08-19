@@ -10,7 +10,7 @@ function css() {
     .pipe(SOURCEMAPS.init())
     .pipe(CSSNANO())
     .pipe(SOURCEMAPS.write('.'))
-    .pipe(GULP.dest('./css'))
+    .pipe(GULP.dest('./dist/css'))
 }
 
 
