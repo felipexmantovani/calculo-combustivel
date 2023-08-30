@@ -1,12 +1,19 @@
 const GULP = require('gulp')
 const CSSNANO = require('gulp-cssnano')
 const SOURCEMAPS = require('gulp-sourcemaps')
-/*const CONCAT =  require('gulp-concat')
+const CONCAT =  require('gulp-concat')
 const UNGLIFY = require('gulp-uglify')
-const BABEL = require('gulp-babel')*/
+const BABEL = require('gulp-babel')
+
+
+function watchFiles(){
+    GULP.watch('./src/css/*.css',css)
+    GULP.watch('./js/script.js',js)
+    GULP.watch('./js/toast.js',js)
+}
 
 function css() {
-    return GULP.src('./css/*.css')
+    return GULP.src('./src/css/*.css')
     .pipe(SOURCEMAPS.init())
     .pipe(CSSNANO())
     .pipe(SOURCEMAPS.write('.'))
@@ -14,9 +21,9 @@ function css() {
 }
 
 
-/*
+
 function js() {
-    return GULP.src('./lib/jquery.mask.js','./js/toast.js','./js/script.js')
+    return GULP.src(['./src/js/toast.js','./src/js/script.js'])
     .pipe(CONCAT('all.js'))
     .pipe(BABEL({
         presets: [
@@ -28,7 +35,8 @@ function js() {
         ]
     }))
     .pipe(UNGLIFY())
-    .pipe(GULP.dest('./js-min'))
+    .pipe(GULP.dest('./dist/js'))
 }
-*/
-exports.default = GULP.parallel(css)
+
+exports.default = GULP.parallel(css,js)
+exports.watch = watchFiles;
