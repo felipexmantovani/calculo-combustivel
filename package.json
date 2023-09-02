@@ -23,6 +23,7 @@
     "gulp-uglify": "^3.0.2"
   },
   "dependencies": {
+    "gulp-minify-html": "^1.0.6",
     "gulp-watch": "^5.0.1",
     "node": "^20.5.0"
   }
