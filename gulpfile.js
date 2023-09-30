@@ -13,7 +13,6 @@ function watchFiles(){
     GULP.watch('./src/css/*.css',css)
     GULP.watch('./src/js/*.js',processoScript)
     GULP.watch('./src/html/*.html',html)
-    
 }
 
 function css() {

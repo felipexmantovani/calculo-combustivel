@@ -1,5 +1,3 @@
-console.log("Carlos")
-
 const TOAST_TYPE = {
   SUCESS: 'success',
   WARNING: 'warning',
