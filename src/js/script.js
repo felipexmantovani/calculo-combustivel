@@ -1,3 +1,4 @@
+  console.log("asdsdas")
 $('.input').mask('#,##0.00', { reverse: true });
 
 const FORM = document.querySelector('form');
