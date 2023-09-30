@@ -5,6 +5,8 @@ const CONCAT =  require('gulp-concat')
 const UGLIFY = require('gulp-uglify')
 const BABEL = require('gulp-babel')
 const HTMLMIN = require('gulp-minify-html');
+const DEL = import('del');
+const CLEAN = require('gulp-clean');
 
 const JQUERY = './node_modules/jquery/dist/jquery.min.js';
 const JQUERYMASK = './node_modules/jquery-mask-plugin/dist/jquery.mask.min.js'
@@ -13,6 +15,11 @@ function watchFiles(){
     GULP.watch('./src/css/*.css',css)
     GULP.watch('./src/js/*.js',processoScript)
     GULP.watch('./src/html/*.html',html)
+}
+
+function clean(){
+  return GULP.src('./dist/*', { read: false, allowEmpty: true })
+    .pipe(CLEAN());
 }
 
 function css() {
@@ -54,10 +61,16 @@ function processoScript() {
 function html(){
     return GULP.src('./src/html/*.html')
     .pipe(HTMLMIN())
-    .pipe(GULP.dest('./'))
+    .pipe(GULP.dest('./dist/'))
 }
 
-exports.default = GULP.parallel(css, lib,processoScript, concatenaEExporta, html)
+
+function img(){
+  return GULP.src('./src/img/*')
+  .pipe(GULP.dest('./dist/img'))
+}
+
+exports.default = GULP.series(clean,lib,processoScript, concatenaEExporta,GULP.parallel(css, html,img))
 exports.watch = watchFiles;
 
 
