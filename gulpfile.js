@@ -13,15 +13,15 @@ const BROWSER_SYNC = require('browser-sync').create();
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 function browserSyncInit(done) {
-  // BROWSER_SYNC.init({
-  //     server: {
-  //       baseDir: './dist',
-  //     },
-  //     port: 3000,
-  //     open: !IS_PRODUCTION,
-  //     localOnly: true
-  // });
-  // done();
+  BROWSER_SYNC.init({
+      server: {
+        baseDir: './dist',
+      },
+      port: 3000,
+      open: !IS_PRODUCTION,
+      localOnly: true
+  });
+  done();
 }
 
 function watchFiles(){
@@ -41,7 +41,7 @@ function css() {
     .pipe(CSSNANO())
     .pipe(SOURCEMAPS.write('.'))
     .pipe(GULP.dest('./dist/css'))
-    .pipe(BROWSER_SYNC.stream());
+    // .pipe(BROWSER_SYNC.stream());
 }
 
 function lib(){
@@ -64,21 +64,21 @@ function processoScript() {
       }))
       .pipe(UGLIFY())
       .pipe(GULP.dest('./dist/js'))
-      .pipe(BROWSER_SYNC.stream());
+      // .pipe(BROWSER_SYNC.stream());
   }
 
   function concatenaEExporta() {
     return GULP.src(['./dist/js/all-Lib.js','./dist/js/all-Script.js'])
       .pipe(CONCAT('final.js'))
       .pipe(GULP.dest('./dist/js'))
-      .pipe(BROWSER_SYNC.stream());
+      // .pipe(BROWSER_SYNC.stream());
   }
 
 function html(){
     return GULP.src('./src/html/*.html')
     .pipe(HTMLMIN())
     .pipe(GULP.dest('./dist/'))
-    .pipe(BROWSER_SYNC.stream());
+    // .pipe(BROWSER_SYNC.stream());
 }
 
 function img(){
@@ -86,4 +86,11 @@ function img(){
   .pipe(GULP.dest('./dist/img'))
 }
 
-exports.default = GULP.series(clean,lib,processoScript, concatenaEExporta,GULP.parallel(css, html,img, browserSyncInit, watchFiles))
+exports.default = GULP.series(
+  clean,
+  lib,
+  processoScript,
+  concatenaEExporta,
+  // browserSyncInit,
+  GULP.parallel(css, html, img, watchFiles)
+);
