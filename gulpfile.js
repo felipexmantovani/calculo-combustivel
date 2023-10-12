@@ -12,25 +12,30 @@ const BROWSER_SYNC = require('browser-sync').create();
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
+function isDev() {
+  return !IS_PRODUCTION;
+}
+
 function browserSyncInit(done) {
-  BROWSER_SYNC.init({
+  if (isDev()) {
+    BROWSER_SYNC.init({
       server: {
         baseDir: './dist',
       },
       port: 3000,
-      open: !IS_PRODUCTION,
-      localOnly: true
-  });
+      open: isDev()
+    });
+  }
   done();
 }
 
-function watchFiles(){
+function watchFiles() {
     GULP.watch('./src/css/*.css',css)
     GULP.watch('./src/js/*.js',processoScript)
     GULP.watch('./src/html/*.html',html)
 }
 
-function clean(){
+function clean() {
   return GULP.src('./dist/*', { read: false, allowEmpty: true })
     .pipe(CLEAN());
 }
@@ -41,10 +46,10 @@ function css() {
     .pipe(CSSNANO())
     .pipe(SOURCEMAPS.write('.'))
     .pipe(GULP.dest('./dist/css'))
-    // .pipe(BROWSER_SYNC.stream());
+    .pipe(BROWSER_SYNC.stream());
 }
 
-function lib(){
+function lib() {
  return GULP.src([JQUERY, JQUERYMASK])
  .pipe(CONCAT('all-Lib.js'))
  .pipe(GULP.dest('./dist/js'))
@@ -64,24 +69,24 @@ function processoScript() {
       }))
       .pipe(UGLIFY())
       .pipe(GULP.dest('./dist/js'))
-      // .pipe(BROWSER_SYNC.stream());
+      .pipe(BROWSER_SYNC.stream());
   }
 
   function concatenaEExporta() {
     return GULP.src(['./dist/js/all-Lib.js','./dist/js/all-Script.js'])
       .pipe(CONCAT('final.js'))
       .pipe(GULP.dest('./dist/js'))
-      // .pipe(BROWSER_SYNC.stream());
+      .pipe(BROWSER_SYNC.stream());
   }
 
-function html(){
+function html() {
     return GULP.src('./src/html/*.html')
     .pipe(HTMLMIN())
     .pipe(GULP.dest('./dist/'))
-    // .pipe(BROWSER_SYNC.stream());
+    .pipe(BROWSER_SYNC.stream());
 }
 
-function img(){
+function img() {
   return GULP.src('./src/img/*')
   .pipe(GULP.dest('./dist/img'))
 }
@@ -91,7 +96,5 @@ exports.default = GULP.series(
   lib,
   processoScript,
   concatenaEExporta,
-  // watchFiles
-  // browserSyncInit,
-  GULP.parallel(css, html, img)
+  GULP.parallel(css, html, img, watchFiles, browserSyncInit)
 );
