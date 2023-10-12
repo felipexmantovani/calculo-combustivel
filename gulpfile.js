@@ -10,13 +10,15 @@ const JQUERY = './node_modules/jquery/dist/jquery.min.js';
 const JQUERYMASK = './node_modules/jquery-mask-plugin/dist/jquery.mask.min.js'
 const BROWSER_SYNC = require('browser-sync').create();
 
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 function browserSyncInit(done) {
   BROWSER_SYNC.init({
       server: {
-          baseDir: './dist',
+        baseDir: './dist',
       },
       port: 3000,
+      open: !IS_PRODUCTION
   });
   done();
 }
@@ -63,10 +65,10 @@ function processoScript() {
       .pipe(GULP.dest('./dist/js'))
       .pipe(BROWSER_SYNC.stream());
   }
-  
+
   function concatenaEExporta() {
     return GULP.src(['./dist/js/all-Lib.js','./dist/js/all-Script.js'])
-      .pipe(CONCAT('final.js')) 
+      .pipe(CONCAT('final.js'))
       .pipe(GULP.dest('./dist/js'))
       .pipe(BROWSER_SYNC.stream());
   }
@@ -78,12 +80,9 @@ function html(){
     .pipe(BROWSER_SYNC.stream());
 }
 
-
 function img(){
   return GULP.src('./src/img/*')
   .pipe(GULP.dest('./dist/img'))
 }
 
 exports.default = GULP.series(clean,lib,processoScript, concatenaEExporta,GULP.parallel(css, html,img, browserSyncInit, watchFiles))
-
-
