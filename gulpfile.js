@@ -13,15 +13,15 @@ const BROWSER_SYNC = require('browser-sync').create();
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 function browserSyncInit(done) {
-  BROWSER_SYNC.init({
-      server: {
-        baseDir: './dist',
-      },
-      port: 3000,
-      open: !IS_PRODUCTION,
-      localOnly: true
-  });
-  done();
+  // BROWSER_SYNC.init({
+  //     server: {
+  //       baseDir: './dist',
+  //     },
+  //     port: 3000,
+  //     open: !IS_PRODUCTION,
+  //     localOnly: true
+  // });
+  // done();
 }
 
 function watchFiles(){
