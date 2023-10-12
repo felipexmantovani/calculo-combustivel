@@ -91,6 +91,7 @@ exports.default = GULP.series(
   lib,
   processoScript,
   concatenaEExporta,
+  // watchFiles
   // browserSyncInit,
-  GULP.parallel(css, html, img, watchFiles)
+  GULP.parallel(css, html, img)
 );
