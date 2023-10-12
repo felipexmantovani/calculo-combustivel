@@ -9,30 +9,32 @@ const CLEAN = require('gulp-clean');
 const JQUERY = './node_modules/jquery/dist/jquery.min.js';
 const JQUERYMASK = './node_modules/jquery-mask-plugin/dist/jquery.mask.min.js'
 const BROWSER_SYNC = require('browser-sync').create();
-
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
-
-function isDev() {
-  return !IS_PRODUCTION;
-}
+const MODE = require('gulp-mode')({
+  modes: ['production', 'development'],
+  default: 'development',
+  verbose: false
+});
 
 function browserSyncInit(done) {
-  if (isDev()) {
+  if (MODE.development()) {
     BROWSER_SYNC.init({
       server: {
         baseDir: './dist',
       },
       port: 3000,
-      open: isDev()
+      open: true
     });
   }
   done();
 }
 
-function watchFiles() {
+function watchFiles(done) {
+  if (MODE.development()) {
     GULP.watch('./src/css/*.css',css)
     GULP.watch('./src/js/*.js',processoScript)
     GULP.watch('./src/html/*.html',html)
+  }
+  done()
 }
 
 function clean() {
