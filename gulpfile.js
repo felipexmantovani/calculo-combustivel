@@ -18,7 +18,8 @@ function browserSyncInit(done) {
         baseDir: './dist',
       },
       port: 3000,
-      open: !IS_PRODUCTION
+      open: !IS_PRODUCTION,
+      localOnly: true
   });
   done();
 }
