@@ -1,0 +1,33 @@
+{
+  "name": "calculo-combustivel",
+  "version": "1.0.0",
+  "description": "[https://calculo-combustivel-7d632d.netlify.app/](https://calculo-combustivel-7d632d.netlify.app/)",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx gulp"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.29.3",
+    "cssnano": "^6.0.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "jquery-mask-plugin": "^1.14.16"
+  }
+}
