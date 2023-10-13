@@ -1,8 +1,16 @@
 # calculo-combustivel
 
-<img src="imagem.png" alt="Exemplo imagem">
+<div align="center">
+  <img width="250" src='https://github-production-user-asset-6210df.s3.amazonaws.com/4302885/274778619-e4045303-9125-4e4c-911b-be3ffe499000.png' />
+</div>
+<br/>
+<div align="center">
+  <img width="800" src='https://github-production-user-asset-6210df.s3.amazonaws.com/4302885/274778438-5266bfac-9c58-4db8-b6d6-ba3b5c0cfb49.png' />
+</div>
 
-> App que calcula o combustível que compensa abastecer.
+> Repositório criado para mentoriar amigo no desenvolvimento front-end.
+> 
+> O APP calcula o combustível que compensa abastecer.
 
 ## 🚀 Instalando o calculo-combustivel
 
@@ -33,8 +41,6 @@ Para contribuir com calculo-combustivel, siga estas etapas:
 5. Crie a solicitação de pull.
 
 ## 🤝 Colaboradores
-
-Contribuidores:
 
 <table>
   <tr>
