@@ -1,5 +1,9 @@
 # calculo-combustivel
 
+> Repositório criado para mentoriar amigo no desenvolvimento front-end.
+> 
+> O APP calcula o combustível que compensa abastecer.
+
 <div align="center">
   <img width="250" src='https://github-production-user-asset-6210df.s3.amazonaws.com/4302885/274778619-e4045303-9125-4e4c-911b-be3ffe499000.png' />
 </div>
@@ -7,10 +11,6 @@
 <div align="center">
   <img width="800" src='https://github-production-user-asset-6210df.s3.amazonaws.com/4302885/274778438-5266bfac-9c58-4db8-b6d6-ba3b5c0cfb49.png' />
 </div>
-
-> Repositório criado para mentoriar amigo no desenvolvimento front-end.
-> 
-> O APP calcula o combustível que compensa abastecer.
 
 ## 🚀 Instalando o calculo-combustivel
 
@@ -29,6 +29,13 @@ Execute o comando:
 ```
 npm start
 ```
+
+## 🧑‍💻 Tecnologias utilizadas
+
+- HTML
+- CSS
+- jQuery
+- Gulp
 
 ## 📫 Contribuindo para calculo-combustivel
 
