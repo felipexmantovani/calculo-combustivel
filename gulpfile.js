@@ -41,14 +41,14 @@ function css() {
     .pipe(BROWSER_SYNC.stream());
 }
 
-function lib(){
+function lib(){ 
  return GULP.src([JQUERY, JQUERYMASK])
  .pipe(CONCAT('all-Lib.js'))
  .pipe(GULP.dest('./dist/js'))
 }
 
 function processoScript() {
-    return GULP.src(['./src/js/script.js', './src/js/toast.js'])
+    return GULP.src(['./src/js/dark-mode.js','./src/js/script.js', './src/js/toast.js'])
       .pipe(CONCAT('all-Script.js'))
       .pipe(BABEL({
         presets: [
