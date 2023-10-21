@@ -9,25 +9,35 @@ const CLEAN = require('gulp-clean');
 const JQUERY = './node_modules/jquery/dist/jquery.min.js';
 const JQUERYMASK = './node_modules/jquery-mask-plugin/dist/jquery.mask.min.js'
 const BROWSER_SYNC = require('browser-sync').create();
-
+const MODE = require('gulp-mode')({
+  modes: ['production', 'development'],
+  default: 'development',
+  verbose: false
+});
 
 function browserSyncInit(done) {
-  BROWSER_SYNC.init({
+  if (MODE.development()) {
+    BROWSER_SYNC.init({
       server: {
-          baseDir: './dist',
+        baseDir: './dist',
       },
       port: 3000,
-  });
+      open: true
+    });
+  }
   done();
 }
 
-function watchFiles(){
+function watchFiles(done) {
+  if (MODE.development()) {
     GULP.watch('./src/css/*.css',css)
     GULP.watch('./src/js/*.js',processoScript)
     GULP.watch('./src/html/*.html',html)
+  }
+  done()
 }
 
-function clean(){
+function clean() {
   return GULP.src('./dist/*', { read: false, allowEmpty: true })
     .pipe(CLEAN());
 }
@@ -41,7 +51,7 @@ function css() {
     .pipe(BROWSER_SYNC.stream());
 }
 
-function lib(){ 
+function lib(){
  return GULP.src([JQUERY, JQUERYMASK])
  .pipe(CONCAT('all-Lib.js'))
  .pipe(GULP.dest('./dist/js'))
@@ -63,27 +73,30 @@ function processoScript() {
       .pipe(GULP.dest('./dist/js'))
       .pipe(BROWSER_SYNC.stream());
   }
-  
+
   function concatenaEExporta() {
     return GULP.src(['./dist/js/all-Lib.js','./dist/js/all-Script.js'])
-      .pipe(CONCAT('final.js')) 
+      .pipe(CONCAT('final.js'))
       .pipe(GULP.dest('./dist/js'))
       .pipe(BROWSER_SYNC.stream());
   }
 
-function html(){
+function html() {
     return GULP.src('./src/html/*.html')
     .pipe(HTMLMIN())
     .pipe(GULP.dest('./dist/'))
     .pipe(BROWSER_SYNC.stream());
 }
 
-
-function img(){
+function img() {
   return GULP.src('./src/img/*')
   .pipe(GULP.dest('./dist/img'))
 }
 
-exports.default = GULP.series(clean,lib,processoScript, concatenaEExporta,GULP.parallel(css, html,img, browserSyncInit, watchFiles))
-
-
+exports.default = GULP.series(
+  clean,
+  lib,
+  processoScript,
+  concatenaEExporta,
+  GULP.parallel(css, html, img, watchFiles, browserSyncInit)
+);
