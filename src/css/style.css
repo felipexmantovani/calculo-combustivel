@@ -81,9 +81,8 @@
 }
 
 .light #moon-icon {
-  color: #877339;
+  color: #cccccc;
 }
-
 
 .light #sun-icon {
   color: #FCC21B;
@@ -137,8 +136,15 @@
   color: #FCC21B;
 }
 
+.dark .button-mode {
+  background-color: #333333;
+}
+
+.light .button-mode {
+  background-color: #eeeeee;
+}
+
 .button-mode {
-  background-color: #1b1b1b;
   display: inline-block;
   width: 80px;
   height: 35px;
@@ -148,6 +154,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-radius: 0.5rem;
 }
 
 i {
@@ -166,4 +173,10 @@ i {
   .container {
     padding: 30px 40px
   }
+}
+
+body,
+input,
+.container {
+  transition: 0.25s all;
 }
