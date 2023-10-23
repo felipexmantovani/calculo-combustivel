@@ -1,24 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
-body {
-  background-color: #1b1b1b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Open Sans, sans-serif;
-  font-size: 16px;
-  overflow: hidden;
-  padding: 0 25px;
-  color: #606060
+:root {
+  --body-bg-light: #FFFFFF;
+  --body-color-light: #666666;
+  --container-bg-light: #EEEEEE;
+  --input-border-light: #888888;
+  --input-color-light: #666666;
+  --button-bg-light: #2A6CB9;
+  --button-color-light: #FFFFFF;
+
+  /*Dark mode*/
+
+  --body-bg-dark: #222222;
+  --body-color-dark: #EEEEEE;
+  --container-bg-dark: #444444;
+  --input-border-dark: #888888;
+  --input-bg-dark: #444444;
+  --input-color-dark: #EEEEEE;
+  --button-bg-dark: #2A6CB9;
+  --button-color-dark: #FFFFFF;
 }
 
-.container {
-  background-color: #fff;
-  max-width: 450px;
-  width: 100%;
-  border-radius: 20px;
-  padding: 30px 50px
-}
 
 #conteudo {
   display: flex;
@@ -38,23 +40,126 @@ body {
   font-size: 1.125rem
 }
 
-.input {
-  width: 100%;
-  border-radius: 5px;
-  border: 1px solid #9a9a9a;
-  padding: 14px 12px;
-  outline: none;
-  color: #9a9a9a
+
+.light {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Open Sans, sans-serif;
+  font-size: 16px;
+  overflow: hidden;
+  padding: 0 25px;
+  background-color: var(--body-bg-light);
+  color: var(--body-color-light);
 }
 
-#button {
+.light .container {
+  max-width: 450px;
   width: 100%;
-  color: #fff;
-  background-color: #4c3e5a;
+  border-radius: 20px;
+  padding: 30px 50px;
+  background-color: var(--container-bg-light);
+}
+
+.light .input {
+  width: 100%;
+  border-radius: 5px;
+  padding: 14px 12px;
+  outline: none;
+  border: 1px solid var(--input-border-light);
+  color: var(--input-color-light);
+}
+
+.light #button {
+  width: 100%;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  padding: 14px
+  padding: 14px;
+  background-color: var(--button-bg-light);
+  color: var(--button-color-light);
+}
+
+.light #moon-icon {
+  color: #877339;
+}
+
+
+.light #sun-icon {
+  color: #FCC21B;
+}
+
+.dark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Open Sans, sans-serif;
+  font-size: 16px;
+  overflow: hidden;
+  padding: 0 25px;
+  background-color: var(--body-bg-dark);
+  color: var(--body-color-dark);
+}
+
+.dark .container {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 30px 50px;
+  background-color: var(--container-bg-dark);
+}
+
+.dark .input {
+  width: 100%;
+  border-radius: 5px;
+  padding: 14px 12px;
+  outline: none;
+  color: var(--input-color-dark);
+  background-color: var(--input-bg-dark);
+  border: 1px solid var(--input-border-dark);
+}
+
+.dark #button {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 14px;
+  background-color: var(--button-bg-dark);
+  color: var(--button-color-dark);
+}
+
+.dark #sun-icon {
+  color: #877339;
+}
+
+.dark #moon-icon {
+  color: #FCC21B;
+}
+
+.button-mode {
+  background-color: #1b1b1b;
+  display: inline-block;
+  width: 80px;
+  height: 35px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+i {
+  cursor: pointer;
+}
+
+#btn,
+#btn2 {
+  visibility: hidden;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 @media (min-width:768px) {

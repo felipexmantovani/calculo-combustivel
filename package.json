@@ -8,6 +8,7 @@
     "start": "npx gulp --development",
     "build": "npx gulp --development",
     "build-ci": "npx gulp --production"
+
   },
   "author": "",
   "license": "ISC",
