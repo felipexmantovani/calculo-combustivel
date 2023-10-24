@@ -8,7 +8,6 @@
     "start": "npx gulp --development",
     "build": "npx gulp --development",
     "build-ci": "npx gulp --production"
-
   },
   "author": "",
   "license": "ISC",
@@ -27,7 +26,8 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-watch": "^5.0.1",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "mode": "^0.3.2"
   },
   "dependencies": {
     "jquery": "^3.7.1",
