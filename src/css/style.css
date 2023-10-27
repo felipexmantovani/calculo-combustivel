@@ -164,7 +164,10 @@ i {
 }
 
 @media (min-width:768px) {
-  .container {
+  .dark .container {
+    padding: 30px 40px
+  }
+  .light .container{
     padding: 30px 40px
   }
 }
