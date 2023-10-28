@@ -172,7 +172,7 @@ i {
   }
 }
 
-@media (min-width: 425px){
+@media (max-width: 426px){
   img{
     width: 120px;
     height: 120px;
