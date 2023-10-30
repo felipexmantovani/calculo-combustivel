@@ -4,11 +4,11 @@
   "description": "[https://calculo-combustivel-7d632d.netlify.app/](https://calculo-combustivel-7d632d.netlify.app/)",
   "main": "gulpfile.js",
   "scripts": {
+    "lint": "eslint --fix ./src/js/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx gulp --development",
     "build": "npx gulp --development",
     "build-ci": "npx gulp --production"
-
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.29.3",
     "cssnano": "^6.0.1",
+    "eslint": "^8.52.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^7.0.1",
     "gulp-clean": "^0.4.0",
