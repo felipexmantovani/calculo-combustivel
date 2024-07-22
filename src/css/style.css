@@ -22,6 +22,7 @@
 }
 
 
+
 #conteudo {
   display: flex;
   flex-wrap: wrap;
@@ -170,8 +171,18 @@ i {
 }
 
 @media (min-width:768px) {
-  .container {
+  .dark .container {
     padding: 30px 40px
+  }
+  .light .container{
+    padding: 30px 40px
+  }
+}
+
+@media (max-width: 426px){
+  img{
+    width: 120px;
+    height: 120px;
   }
 }
 
